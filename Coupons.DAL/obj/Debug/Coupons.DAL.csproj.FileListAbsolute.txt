@@ -1,0 +1,12 @@
+C:\00comp\06GIT\coupons\CouponsApi\Coupons.DAL\obj\Debug\Coupons.DAL.csproj.CoreCompileInputs.cache
+C:\00comp\06GIT\coupons\CouponsApi\Coupons.DAL\bin\Debug\Coupons.DAL.dll.config
+C:\00comp\06GIT\coupons\CouponsApi\Coupons.DAL\bin\Debug\Coupons.DAL.dll
+C:\00comp\06GIT\coupons\CouponsApi\Coupons.DAL\bin\Debug\Coupons.DAL.pdb
+C:\00comp\06GIT\coupons\CouponsApi\Coupons.DAL\bin\Debug\EntityFramework.dll
+C:\00comp\06GIT\coupons\CouponsApi\Coupons.DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\00comp\06GIT\coupons\CouponsApi\Coupons.DAL\bin\Debug\EntityFramework.xml
+C:\00comp\06GIT\coupons\CouponsApi\Coupons.DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\00comp\06GIT\coupons\CouponsApi\Coupons.DAL\obj\Debug\Coupons.DAL.csproj.CopyComplete
+C:\00comp\06GIT\coupons\CouponsApi\Coupons.DAL\obj\Debug\Coupons.DAL.dll
+C:\00comp\06GIT\coupons\CouponsApi\Coupons.DAL\obj\Debug\Coupons.DAL.pdb
+C:\00comp\06GIT\coupons\CouponsApi\Coupons.DAL\obj\Debug\Coupons.DAL.csprojAssemblyReference.cache
