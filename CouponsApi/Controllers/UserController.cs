@@ -7,12 +7,14 @@ using CouponsApi.Utilities.Auth;
 using Coupons.DAL.Repositories;
 using Coupons.DAL.Interfaces;
 using Coupons.DAL;
+using System.Web.Http.Cors;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 
 namespace CouponsApi.Controllers
 {
+    [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
     public class UserController : ApplicationBaseController
     {
         private static readonly NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
@@ -96,6 +98,7 @@ namespace CouponsApi.Controllers
         }
 
         [HttpGet]
+        //[EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
         public HttpResponseMessage GetAll()
         {
             string apiName = "GetAll()";
@@ -106,9 +109,16 @@ namespace CouponsApi.Controllers
             try
             {
                 var response = usersRepository.GetUsers();
+
+                string logResponseData=string.Empty;
+                foreach (var data in response)
+                {
+                    logResponseData += data.ToString() +"\n";
+                }
+
                 logger.
                     Info("Guid: \"{0}\" api/{1}/{2}\nResponse Data:\n{3}",
-                    guid, controllerName, apiName, response.ToString());
+                    guid, controllerName, apiName, logResponseData);
                 return CreateResponseMessage(response);
             }
             catch (Exception ex)
