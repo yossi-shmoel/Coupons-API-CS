@@ -9,10 +9,16 @@ namespace CouponsApi.Models.Requests
     public class UserRequest
     {
         public String Name { get; set; }
-        [EmailAddress]
+        //[EmailAddress]
         public String Email { get; set; }
         public String Password { get; set; }
         public String Type { get; set; }
         public long CompanyId { get; set; }
+
+        public override string ToString()
+        {
+            return "{Name: " + Name + ", Email: " + Email + ", Type: " + Type
+                + ", CompanyId: " + CompanyId + "}";
+        }
     }
 }

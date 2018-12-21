@@ -7,7 +7,12 @@ namespace CouponsApi.Models.Requests
     public class CompanyRequest
     {
         public String Name { get; set; }
-        [EmailAddress]
+        // [EmailAddress]
         public String Email { get; set; }
+
+        public override string ToString()
+        {
+            return "{Name: " + Name + ", Email: " + Email  + "}";
+        }
     }
 }

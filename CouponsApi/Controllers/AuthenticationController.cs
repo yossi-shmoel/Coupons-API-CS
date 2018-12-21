@@ -11,9 +11,11 @@ using Coupons.DAL;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Web.Http.Cors;
 
 namespace CouponsApi.Controllers
 {
+    [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
     public class AuthenticationController : ApplicationBaseController
     {
         private static readonly NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();

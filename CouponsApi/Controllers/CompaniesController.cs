@@ -9,9 +9,11 @@ using CouponsApi.Models.Requests;
 using Coupons.DAL.Repositories;
 using Coupons.DAL.Interfaces;
 using Coupons.DAL;
+using System.Web.Http.Cors;
 
 namespace CouponsApi.Controllers
 {
+    [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
     public class CompaniesController : ApplicationBaseController
     {
         private static readonly NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
@@ -63,7 +65,7 @@ namespace CouponsApi.Controllers
         }
 
         [HttpGet]
-        public HttpResponseMessage Get(long companyId)
+        public HttpResponseMessage Get(long id)
         {
             string apiName = "Get()";
             var guid = Guid.NewGuid();
@@ -72,7 +74,7 @@ namespace CouponsApi.Controllers
             ICompanyRepository companyRepository = new CompanyRepository();
             try
             {
-                var company = companyRepository.Get(companyId);
+                var company = companyRepository.Get(id);
                 return CreateResponseMessage(company);
             }
             catch (Exception ex)

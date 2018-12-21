@@ -9,9 +9,11 @@ using CouponsApi.Models.Requests;
 using Coupons.DAL.Repositories;
 using Coupons.DAL.Interfaces;
 using Coupons.DAL;
+using System.Web.Http.Cors;
 
 namespace CouponsApi.Controllers
 {
+    [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
     public class CouponsController : ApplicationBaseController
     {
         private static readonly NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
@@ -74,9 +76,9 @@ namespace CouponsApi.Controllers
         }
 
         [HttpGet]
-        public HttpResponseMessage Get(int couponId)
+        public HttpResponseMessage Get(int id)
         {
-            string apiName = "Get(int couponId{" + couponId + "})";
+            string apiName = "Get(int couponId{" + id + "})";
             var guid = Guid.NewGuid();
             logger.Info("Guid: \"{0}\" api/{1}/{2} was invoked", guid, controllerName, apiName);
 
@@ -84,7 +86,7 @@ namespace CouponsApi.Controllers
 
             try
             {
-                var response=couponRepository.Get(couponId);
+                var response=couponRepository.Get(id);
                 return CreateResponseMessage(response);
             }
             catch (Exception ex)

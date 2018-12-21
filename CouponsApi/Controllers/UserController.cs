@@ -78,7 +78,7 @@ namespace CouponsApi.Controllers
         }
 
         [HttpGet]
-        public HttpResponseMessage Get(long userId)
+        public HttpResponseMessage Get(long id)
         {
             string apiName = "Get()";
             var guid = Guid.NewGuid();
@@ -87,7 +87,7 @@ namespace CouponsApi.Controllers
             IUsersRepository usersRepository = new UsersRepository();
             try
             {
-                var user = usersRepository.Get(userId);
+                var user = usersRepository.Get(id);
                 return CreateResponseMessage(user);
             }
             catch (Exception ex)
