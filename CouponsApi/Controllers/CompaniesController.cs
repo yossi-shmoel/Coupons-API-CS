@@ -46,14 +46,16 @@ namespace CouponsApi.Controllers
                         Email = companyRequest.Email
                     };
                     companyRepository.Create(newCompany);
+                    logger.Info("Guid: \"{0}\" Completed Creating new Company", guid);
                     return CreateResponseMessage(newCompany);
                 }
                 else
                 {//Update
                     logger.Info("Guid: \"{0}\" Start Updating Company", guid);
-                    companyToUpdate.Email = companyRequest.Email;
+                    // companyToUpdate.Email = companyRequest.Email;
                     companyToUpdate.Name = companyRequest.Name;
                     companyRepository.SaveChanges();
+                    logger.Info("Guid: \"{0}\" Completed Updating Company", guid);
                     return CreateResponseMessage(companyToUpdate);
                 }
             }

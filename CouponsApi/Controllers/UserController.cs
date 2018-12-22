@@ -56,6 +56,7 @@ namespace CouponsApi.Controllers
                     var createdUser = usersRepository.GetUserByToken(token);
                     usersRepository.AddNewAuthUser(createdUser.Id, PasswordEncryptor.Encrypt(userRequest.Password));
 
+                    logger.Info("Guid: \"{0}\" completed Creating new User", guid);
                     return CreateResponseMessage(newUser);
                 }
                 else
@@ -63,10 +64,12 @@ namespace CouponsApi.Controllers
                     logger.Info("Guid: \"{0}\" Start Updating User", guid);
 
                     userToUpdate.Name = userRequest.Name;
-                    userToUpdate.Email = userRequest.Email;
+                    // userToUpdate.Email = userRequest.Email;
                     userToUpdate.CompanyId = userRequest.CompanyId;
                     userToUpdate.Type = userRequest.Type;
-                   
+
+                    logger.Info("Guid: \"{0}\" completed Updating User", guid);
+                    usersRepository.SaveChanges();
                     return CreateResponseMessage(userToUpdate);
                 }
             }
